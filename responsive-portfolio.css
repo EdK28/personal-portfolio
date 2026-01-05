@@ -1,0 +1,227 @@
+/*
+GLOBAL STYLING
+*/
+html, body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    overflow-x: hidden;
+}
+
+/*
+HERO SECTION
+*/
+.HERO {
+    position: relative;                                             /* anchor ::before */
+    overflow: hidden;                                               /* prevent animation overflow */
+}
+
+/*
+HERO BANNER
+*/
+@media (max-width: 900px) {
+    .HERO {
+        flex-direction: column;                                     /* stack header + banner */
+        justify-content: flex-start;                                /* header stays at top */
+        align-items: center;                                        /* center horizontally */
+        padding: clamp(24px, 6vw, 60px) 6vw;
+        gap: clamp(40px, 10vh, 80px);                               /* space between header and banner */
+    }
+
+    .header {
+        width: 100%;
+        justify-content: flex-end;                                  /* keep nav links at right (preferred) */
+        margin-bottom: 0;
+        padding: 0 0 clamp(10px, 2vh, 20px) 0;
+    }
+
+    nav {
+        justify-content: flex-end;                                  /* keep links on top-right */
+        gap: clamp(16px, 5vw, 48px);
+    }
+
+    .BANNER {
+        text-align: center;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+/*
+NAV BAR - SYMMETRICAL
+*/
+.header {
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    gap: clamp(16px, 5vw, 48px);
+    margin: 0;
+}
+
+nav a {
+    margin: 0;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+/*
+TYPEWRITER ANIMATION
+*/
+@media (max-width: 768px) {
+    .type {
+        width: 100%;
+        max-width: 100%;
+        white-space: normal;
+        clip-path: none;
+        border-right: none;
+        animation: none;
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+}
+
+/*
+INTRO SECTION
+*/
+@media (max-width: 900px) {
+    #BODY {
+        height: auto;
+        min-height: unset;
+        padding: clamp(60px, 10vw, 120px) 6vw;
+        gap: clamp(40px, 8vw, 80px);
+        background-attachment: scroll;
+    }
+
+    .introduction,
+    .image1 {
+        width: 100%;
+    }
+
+    .introduction {
+        font-size: clamp(0.95rem, 3vw, 1.05rem);
+    }
+
+    .image1 img {
+        max-width: min(90vw, 420px);
+        margin: 0 auto;
+    }
+}
+
+/*
+SERVICES SECTION
+*/
+@media (max-width: 768px) {
+    .SERVICES {
+        min-height: auto;
+        padding-bottom: clamp(60px, 12vw, 100px);
+        background-attachment: scroll;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: clamp(20px, 6vw, 40px);
+        gap: clamp(24px, 6vw, 40px);
+    }
+
+    .grid-item {
+        padding: clamp(20px, 5vw, 28px);
+    }
+
+    .OUR h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+        text-align: center;
+    }
+}
+
+/*
+PROJECTS SLIDESHOW
+*/
+@media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 95vw;
+    }
+
+    .slide img {
+        height: clamp(260px, 55vw, 380px);
+    }
+
+    .slide-content h2 {
+        font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+    }
+
+    .slide-content p {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+}
+
+/*
+CONTACT SECTION
+*/
+@media (max-width: 900px) {
+    .END {
+        flex-direction: column;
+        min-height: auto;
+        padding: clamp(60px, 10vw, 120px) 6vw;
+        gap: clamp(40px, 8vw, 80px);
+        background-attachment: scroll;
+    }
+
+    .CLOSING {
+        margin-left: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .CLOSING h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+    }
+
+    .FORM {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .DETAILSS {
+        width: min(90vw, 360px);
+    }
+
+    .btn2{
+        align-self: center;
+        width:100%;
+    }
+}
+
+/*
+FOOTER
+*/
+@media (max-width: 768px) {
+    footer,
+    .footer {
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+        padding: 16px 0;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+}
+
+/*
+SCROLL TO TOP BUTTON
+*/
+@media (max-width: 768px) {
+    #scrollTopBtn {
+        width: clamp(44px, 12vw, 50px);
+        height: clamp(44px, 12vw, 50px);
+        right: 5vw;
+        bottom: 5vw;
+        z-index:1;
+    }
+}
+
+/* iPad centering fix */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

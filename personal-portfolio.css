@@ -1,0 +1,734 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.HERO{
+    margin-left:0;
+    margin-right:0;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.HERO::before {
+    content: ''; /* Creates the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("alienware.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1; /* Adjust opacity */
+    filter: brightness(100%);
+    z-index:-1; /* Sends the background image behind the text */
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;  /* Ensures items are spaced out across the width */
+    align-items: center;             /* Vertically centers the items within the container */
+    padding: 20px;                   /* Add some padding for spacing */
+    color:white;
+    margin-top:10px;
+    margin-bottom:15%;
+    height:10px;
+}
+
+nav {
+    margin-right:auto;
+    margin-left: auto;
+}
+
+nav a {
+    margin-left: 80px;      /* Add space between the links */
+    text-decoration: none;  /* Remove underline */
+    color: white;         /* Set text color */
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.BANNER{
+    margin-bottom: auto;
+    color:white;
+    margin-left:180px;
+}
+
+.BANNER h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-optical-sizing: auto;
+    font-size:40px;
+    font-weight: bold;
+}
+
+.type {
+    display: inline-block;
+    width: 32ch;              
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid currentColor;
+
+    /* animate visibility, not layout */
+    clip-path: inset(0 100% 0 0);
+
+    animation:
+        typing 3s steps(25, end) infinite,      /* Reveal → pause → hide → loop */
+        blink 0.7s step-end infinite;           /* Adds blinking effect */
+}
+
+/*
+Typewriter animation - inset(top right bottom left)
+clip-path - masks text
+*/
+
+@keyframes typing {
+    0%   { clip-path: inset(0 100% 0 0); }      /* Text hidden (from right) - Animation starts */
+    40%  { clip-path: inset(0 0 0 0); }         /* No clip - Typing animation runs */
+    60%  { clip-path: inset(0 0 0 0); }         /* No clip - Creates pause afer typing finishes */
+    100% { clip-path: inset(0 100% 0 0); }      /* Text hidden - Prepares for loop */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }              
+}
+
+
+
+button, .button-primary {
+    padding: 16px 20px;
+    background-color: #3c00d3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;  /* Button animation */
+}
+
+button:hover, .button-primary:hover {
+    transform: scale(1.08);                                       /* Increases button size when user hovers */
+    background-color: #7ba4d3;
+    color:black;
+}
+
+/*
+Introduction
+*/
+#BODY{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left:auto;
+    margin-right:auto;
+    height:100vh;
+    align-items:center;
+    background-image: url("alienware.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index:-1; /* background behind content */
+}
+
+/*
+INTRODUCTION TEXT
+*/
+.introduction{
+    width:40%;
+    text-align: justify;
+    color:whitesmoke;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Initial hidden state */
+.introduction h2,
+.introduction p{
+    opacity:0;
+    transform: translateY(20px);
+    line-height: 1.8;
+}
+
+/* Animate when intro section is visible */
+#BODY.animate .introduction h2{
+    animation: fadeUp 0.8s ease forwards;
+}
+
+#BODY.animate .introduction p{
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+/*
+IMAGE ANIMATION
+*/
+.image1{
+    width:40%;
+    opacity:0;
+    transform: scale(0.85) translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#BODY.animate .image1{
+    opacity:1;
+    transform: scale(1) translateY(0);
+}
+
+/* Image styling */
+.image1 img{
+    width:100%;
+    max-width:540px;
+    height:auto;
+    border-radius:15px;
+    display:block;
+}
+
+/*
+KEYFRAMES for intro animation
+*/
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/*
+Expertise section
+*/
+.SERVICES {
+    position: relative;
+    background-image: url("alienware.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+/*
+Dark overlay animation
+*/
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    animation: overlayFade 2s ease forwards;
+    z-index: 0;
+    opacity:0;
+}
+
+
+.SERVICES.animate .overlay {
+    animation: overlayFade 1.5s ease forwards;
+}
+
+
+@keyframes overlayFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/*
+TITLE
+*/
+.OUR {
+    position: relative;
+    margin-top: 30px;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1;
+}
+
+/*
+Grid Styling (Expertise)
+*/
+.grid-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/*
+CARD
+*/
+.grid-item {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 26px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 1.7;
+    box-shadow: 5px 10px 25px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card hover effect */
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(255, 254, 254, 0.745);
+}
+
+/* 
+ICON + TITLE
+*/
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.title-row i {
+    color: #7ecbff;
+}
+
+/*
+TEXT
+*/
+.grid-item h2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.grid-item p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    color: #e4e4e4;
+}
+
+/*
+FADE-IN ANIMATION
+*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 4.0s ease, transform 4.0s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+ACCESSIBILITY - reduced motion for card animation
+*/
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .grid-item,
+    .overlay {
+        animation: none;
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+
+
+/*
+PROJECTS
+*/
+#BRANDS {
+    position: relative;
+    background-image: url("alienware.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#BRANDS h1 {
+    margin-bottom: 30px;
+    font-size: 36px;
+    color:whitesmoke;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 8px 5px 30px rgba(255, 255, 255, 0.4);
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Slide hover zoom */
+.slide:hover img {
+    transform: scale(1.08);
+}
+
+.slide-content {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.0s ease;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Show content on hover */
+.slide:hover .slide-content {
+    opacity: 1;
+}
+
+.slide-content h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    font-style: italic;
+}
+
+/*
+Slide button
+*/
+.btn {
+    display: inline-flex;          
+    align-items: center;           /* vertical center */
+    justify-content: center;       /* horizontal center */
+    padding: 15px 24px;
+    background-color: #3c00d3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    line-height: 1;                /*prevent text overflow */
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.4);
+}
+
+
+.btn:hover {
+    background: #0096c7;
+    transform: scale(1.05);
+}
+
+/*
+Navigation buttons
+*/
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-10%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.nav:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/*
+Contact Me Section
+*/
+.END{
+    display:flex;
+    position: relative;
+    justify-content: space-evenly;
+    background-image: url("alienware.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height:100vh;
+    overflow: hidden;
+}
+
+/* DARK OVERLAY */
+.overlay{
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.6);
+    opacity:0;
+    animation: overlayFade 1.2s ease forwards;
+}
+
+@keyframes overlayFade{
+    to{ opacity:1; }
+}
+
+/* 
+Contact and Form Animation 
+*/
+.CLOSING,
+.FORM{
+    position: relative;
+    z-index:2;
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+/* 
+activated by JS 
+*/
+.END.show .CLOSING,
+.END.show .FORM{
+    opacity:1;
+    transform: translateY(0);
+}
+
+/*
+LEFT SIDE
+*/
+.CLOSING{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    margin-left:200px;
+    color:white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.bounce {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+}
+
+/*
+Emoji bounce animation
+*/
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/*
+RIGHT SIDE
+*/
+.FORM{
+    margin:auto auto auto auto;
+    width:100%;
+    color:white;
+    font-family: system-ui, sans-serif;
+}
+
+/*
+FORM
+*/
+.DETAILSS{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    max-width:350px;
+}
+
+/*
+INPUTS
+*/
+.DETAILSS input{
+    padding:12px;
+    border-radius:8px;
+    border:2px solid transparent;
+    outline:none;
+    transition: all 0.3s ease;
+}
+
+.DETAILSS input:focus{
+    border-color:#3c00d3;
+    box-shadow:5px 5px 10px rgba(226, 224, 230, 0.6);
+    transform: scale(1.05);
+}
+
+/*
+BUTTON
+*/
+.btn2 {
+    padding: 12px;
+    background-color: #3c00d3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    max-width: 150px;
+    align-self:center;
+    width:100%;
+}
+
+.btn2:hover{
+    transform: scale(1.05);
+    background-color: #7ba4d3;
+    box-shadow:0 0 15px rgba(60,0,211,0.6);
+}
+
+.btn2:active{
+    transform: scale(0.95);
+}
+
+/*
+SUCCESS MESSAGE 
+*/
+#successMsg{
+    opacity:0;
+    color:#4cff6a;
+    transition: opacity 0.5s ease;
+}
+
+/*
+FOOTER SECTION 
+*/
+footer{
+    display:flex;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    color:white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.copyright::before{
+    content: "\00A9 ";
+}
+
+button, .button-primary {
+    padding: 18px 26px;
+    background-color: #3c00d3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover, .button-primary:hover {
+    transform: scale(1.05);
+    background-color: #7ba4d3;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  font-size: 14px;
+}
+
+.social-icons{
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.footer h4{
+   margin-left:auto;
+   margin-right:auto;
+}
+
+.footer .social-icons a {
+  margin-left: 12px;
+  color: blueviolet;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer .social-icons a:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+
+/* 
+SCROLL TO TOP BUTTON 
+*/
+
+#scrollTopBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0; 
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #3c00d3;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;                                  /* hidden until scroll */
+    box-shadow: 0 10px 20px rgba(6, 0, 0, 0.3);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index:1;   
+}
+
+#scrollTopBtn:hover {
+    transform: scale(1.3);
+    background: #0096c7;
+}
