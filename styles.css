@@ -127,7 +127,7 @@ Introduction
     margin-right:auto;
     height:100vh;
     align-items:center;
-    background-image: url("alienware.jpeg");
+    background-image: url("assets/alienware.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -205,7 +205,7 @@ Expertise section
 */
 .SERVICES {
     position: relative;
-    background-image: url("alienware.jpeg");
+    background-image: url("assets/alienware.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -350,7 +350,7 @@ PROJECTS
 */
 #BRANDS {
     position: relative;
-    background-image: url("alienware.jpeg");
+    background-image: url("assets/alienware.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -486,7 +486,7 @@ Contact Me Section
     display:flex;
     position: relative;
     justify-content: space-evenly;
-    background-image: url("alienware.jpeg");
+    background-image: url("assets/alienware.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
